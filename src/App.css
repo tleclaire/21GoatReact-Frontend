@@ -1,0 +1,52 @@
+.App {
+  text-align: center;
+  }
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-button {
+  height: 250px;
+  width: 700px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+@font-face{
+  font-family: "collegiateHeavyOutlineMedium";
+  src:url("./assets/collegiateHeavyOutlineMedium.ttf");
+}
+
+.App-header {
+  background-color: #651add;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: rgb(255, 102, 0);
+  /*font-family: 'collegiateHeavyOutlineMedium';*/
+  font-family: sans-serif;
+  font-weight:normal;
+  font-style:normal;
+
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
