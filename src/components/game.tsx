@@ -26,7 +26,7 @@ export class Game extends Component<{}, IGameState> {
   }
 
   private async loadNextRandomStatement() {
-    const response:any = await fetch("http://localhost:5000/api/Statements/random");
+    const response:any = await fetch("https://21goatbackend20200329163244.azurewebsites.net/api/Statements/random");
     const data:any = await response.json();
     console.log(this.state.playedIds);
    
@@ -47,7 +47,7 @@ export class Game extends Component<{}, IGameState> {
 
     private async getStatementsCount()
     {
-        const response:any = await fetch("http://localhost:5000/api/Statements");
+        const response:any = await fetch("https://21goatbackend20200329163244.azurewebsites.net/api/Statements");
         const data:any = await response.json();
         this.setState({statementsCount:data.length});
 
