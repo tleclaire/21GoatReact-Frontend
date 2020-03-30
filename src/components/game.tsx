@@ -64,7 +64,7 @@ export class Game extends Component<{}, IGameState> {
     return (
       <div className="App-header" onClick={this.loadNextRandomStatement}>
         <h1 onClick={()=>this.setState({toHome:true})}>21Goat</h1>
-        <div style = {{width:700, textAlign:"center"}}>
+        <div className="Game">
         <p aria-live="polite">
           <strong>{this.state.content}</strong>
         </p>
