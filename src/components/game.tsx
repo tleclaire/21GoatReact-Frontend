@@ -10,6 +10,7 @@ interface IGameState {
     toHome:boolean;
     statementsCount:number;
     counter:number;
+    loading: boolean;
 }
 
 export class Game extends Component<{}, IGameState> {
@@ -18,8 +19,9 @@ export class Game extends Component<{}, IGameState> {
     super(props);
     this.state = {
         playedIds:[],
-        content:"",
+        content:"Tab anywhere to start...",
         toHome:false,
+        loading:false,
         statementsCount:0,
         counter:93
     };
@@ -27,7 +29,8 @@ export class Game extends Component<{}, IGameState> {
   }
 
   private async loadNextRandomStatement():Promise<void> {
-    const response:any = await fetch("https://21goatbackend20200329163244.azurewebsites.net/api/Statements/random");
+    this.setState({loading:true});
+    const response:any = await fetch("https://21goat.azurewebsites.net/api/Statements/random");
     const data:any = await response.json();
     console.log(this.state.playedIds);
 
@@ -38,16 +41,15 @@ export class Game extends Component<{}, IGameState> {
     let ids:number[] = this.state.playedIds;
     if(!(ids.indexOf(data.id)>=0)) {
         ids.push(data.id);
-        this.setState({ content: data.content,playedIds:ids, counter:this.state.counter+1} );
+        this.setState({ content: data.content,playedIds:ids, counter:this.state.counter+1,loading:false} );
     } else {
         console.log("Statement already played");
         this.loadNextRandomStatement();
     }
   }
 
-    private async getStatementsCount():Promise<void>
-    {
-        const response:any = await fetch("https://21goatbackend20200329163244.azurewebsites.net/api/Statements");
+    private async getStatementsCount():Promise<void> {
+        const response:any = await fetch("https://21goat.azurewebsites.net/api/Statements");
         const data:any = await response.json();
         this.setState({statementsCount:data.length});
 
@@ -63,16 +65,24 @@ export class Game extends Component<{}, IGameState> {
     }
     return (
       <div className="App-header" onClick={this.loadNextRandomStatement}>
+        <div className="Img-Div">
         <img src={goat} className="Goat-Logo" alt="21Goat" onClick={()=>this.setState({toHome:true})}/>
-        {/*<h1 onClick={()=>this.setState({toHome:true})}>21Goat</h1>*/}
-        <div className="Game">
-        <p aria-live="polite">
-          <span className= "Text-Class">
-            
-          {this.state.content}
-          </span>
-        </p>
         </div>
+        {this.state.loading ? (
+          <div className="Game">
+          <p>
+              <em>Loading...</em>
+          </p>
+          </div>
+        )
+        :
+        (
+        <div className="Game">
+          <span className="Text-Class">
+        {this.state.content}
+        </span>
+        </div>
+        )}
       </div>
     );
   }

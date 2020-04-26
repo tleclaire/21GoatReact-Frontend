@@ -8,8 +8,8 @@
 }
 
 .App-button {
-  height: 250px;
-  /*max-width: 700px;*/
+  max-height: 250px;
+  max-width: 700px;
   width: 80%;
   height: 40%;
   align-items: center;
@@ -26,18 +26,9 @@
 }
 
 .App-header {
-  background-color: #651add;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 50px;
-  color: rgb(255, 102, 0);
-  /*font-family: 'collegiateHeavyOutlineMedium';*/
-  font-family: sans-serif;
-  font-weight:normal;
-  font-style:normal;
+  background-color: #3c00a0;
+ min-height: 100vh;
+  
   
 
 }
@@ -45,22 +36,43 @@
 .Text-Class{
   margin-left: 10%;
   margin-right: 10%;
-  font-weight: bold;
-  text-align: center;
+}
+
+.Img-Div{
+  width: 100%;
+  height: 20%;
+  margin: auto;
+  display: flex;
+  margin-top: 10px;
+  
+
 }
 
 .Goat-Logo {
-  width: 40%;
-  height: 40%;
-  align-items: center;
+  width: 30%;
+  height: 30%;
+  margin: auto;
+
+  
 }
 
 .Game
 {
   width:100%; 
+  min-height: 60vh;
   text-align: center;
+ font-size: xxx-large;
+  color:#EE6411;
+  /*font-family: 'collegiateHeavyOutlineMedium';*/
+  font-family: sans-serif;
+  font-weight: bold;
+  font-style:normal;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ vertical-align: middle;
 }
-
+ 
 .App-link {
   color: #61dafb;
 }
