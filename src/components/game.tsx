@@ -25,13 +25,12 @@ export class Game extends Component<{}, IGameState> {
     this.loadNextRandomStatement = this.loadNextRandomStatement.bind(this);
   }
 
-  private async loadNextRandomStatement() {
+  private async loadNextRandomStatement():Promise<void> {
     const response:any = await fetch("https://21goatbackend20200329163244.azurewebsites.net/api/Statements/random");
     const data:any = await response.json();
     console.log(this.state.playedIds);
-   
-    if(this.state.counter >= this.state.statementsCount)
-    {
+
+    if(this.state.counter >= this.state.statementsCount) {
         this.setState({playedIds:[],counter:0});
         console.log("all statements played.");
     }
@@ -45,7 +44,7 @@ export class Game extends Component<{}, IGameState> {
     }
   }
 
-    private async getStatementsCount()
+    private async getStatementsCount():Promise<void>
     {
         const response:any = await fetch("https://21goatbackend20200329163244.azurewebsites.net/api/Statements");
         const data:any = await response.json();
