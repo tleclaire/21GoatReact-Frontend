@@ -2,6 +2,7 @@ import * as React from "react";
 import { Component } from "react";
 import "../App.css";
 import { Redirect } from "react-router";
+import goat from "../assets/goat.png";
 
 interface IGameState {
     playedIds :number [];
@@ -63,10 +64,14 @@ export class Game extends Component<{}, IGameState> {
     }
     return (
       <div className="App-header" onClick={this.loadNextRandomStatement}>
-        <h1 onClick={()=>this.setState({toHome:true})}>21Goat</h1>
+        <img src={goat} className="Goat-Logo" alt="21Goat" onClick={()=>this.setState({toHome:true})}/>
+        {/*<h1 onClick={()=>this.setState({toHome:true})}>21Goat</h1>*/}
         <div className="Game">
         <p aria-live="polite">
-          <strong>{this.state.content}</strong>
+          <span className= "Text-Class">
+            
+          {this.state.content}
+          </span>
         </p>
         </div>
       </div>
