@@ -23,10 +23,15 @@ export class Home extends Component<{},IHomeState> {
             return <Redirect to="/game" />;
         }
         return (
-            <header className="App-header">
-            <img src={gif} className="App-logo" alt="logo" />
-            <img src={letsgoat} className="App-button" alt="letsgoat" onClick={()=>this.setState({toGame:true})}/>
-          </header>
+            <div className="Homescreen">
+                <p className="Homescreen-Goat">
+                <img src={gif} className="App-logo" alt="logo" />
+                </p>
+                <p className="Homescreen-Button">
+                <img src={letsgoat} className="App-button" alt="letsgoat" onClick={()=>this.setState({toGame:true})}/>
+                </p>
+            </div>
+          
         );
     }
 }
